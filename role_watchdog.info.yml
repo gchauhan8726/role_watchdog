@@ -1,0 +1,5 @@
+name: 'role_watchdog'
+type: module
+description: 'Role watchdog automatically logs all role changes made through the user profile or the User List in its own table.'
+core: 8.x
+package: 'Custom'
