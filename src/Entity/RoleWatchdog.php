@@ -177,7 +177,7 @@ class RoleWatchdog extends ContentEntityBase implements RoleWatchdogInterface {
       ->setDisplayConfigurable('view', TRUE);
 
     $fields['name'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Name'))
+      ->setLabel(t('Action Performed'))
       ->setDescription(t('The name of the Role Watchdog entity.'))
       ->setSettings([
         'max_length' => 50,
@@ -213,6 +213,114 @@ class RoleWatchdog extends ContentEntityBase implements RoleWatchdogInterface {
     $fields['changed'] = BaseFieldDefinition::create('changed')
       ->setLabel(t('Changed'))
       ->setDescription(t('The time that the entity was last edited.'));
+
+   
+
+    //Role ID changed from 
+    $fields['field_role_id_changed_from'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Role ID changed from'))
+      ->setDescription(t('This is the action performed on the user role.'))
+      ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+      ->setSetting('target_type', 'user_role')
+      ->setSetting('handler', 'default')
+      ->setDisplayOptions('form', array(
+        'type'     => 'entity_reference_autocomplete',
+        'weight'   => 1,
+        'settings' => array(
+          'match_operator'    => 'CONTAINS',
+          'size'              => '60',
+          'autocomplete_type' => 'tags',
+          'placeholder'       => '',
+        ),
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    
+
+    //Role ID Changed to
+      $fields['field_role_id_changed_to'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Role ID Changed to'))
+      ->setDescription(t('This is the action performed on the user role.'))
+      ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+      ->setSetting('target_type', 'user_role')
+      ->setSetting('handler', 'default')
+      ->setDisplayOptions('form', array(
+        'type'     => 'entity_reference_autocomplete',
+        'weight'   => 2,
+        'settings' => array(
+          'match_operator'    => 'CONTAINS',
+          'size'              => '60',
+          'autocomplete_type' => 'tags',
+          'placeholder'       => '',
+        ),
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    
+
+    //User(Performed by)  
+      $fields['field_user_performed_by_'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('User(Performed by)'))
+      ->setDescription(t('This is the action performed on the user role.'))
+      ->setSetting('target_type', 'user')
+      ->setSetting('handler', 'default')
+      ->setDisplayOptions('form', array(
+        'type'     => 'entity_reference_autocomplete',
+        'weight'   => 3,
+        'settings' => array(
+          'match_operator'    => 'CONTAINS',
+          'size'              => '60',
+          'autocomplete_type' => 'tags',
+          'placeholder'       => '',
+        ),
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+      
+
+      //User(performed on)
+      $fields['field_user_performed_on_'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('User(performed on)'))
+      ->setDescription(t('This is the action performed on the user role.'))
+      ->setSetting('target_type', 'user')
+      ->setSetting('handler', 'default')
+      ->setDisplayOptions('form', array(
+        'type'     => 'entity_reference_autocomplete',
+        'weight'   => 4,
+        'settings' => array(
+          'match_operator'    => 'CONTAINS',
+          'size'              => '60',
+          'autocomplete_type' => 'tags',
+          'placeholder'       => '',
+        ),
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+
+    
+    //   //Action Performed
+    // $fields['field_action_performed'] = BaseFieldDefinition::create('entity_reference')
+    //   ->setLabel(t('Action Performed'))
+    //   ->setDescription(t('This is the action performed on the user role.'))
+    //  // ->setSetting('target_type', 'name')
+    //   ->setSetting('handler', 'default')
+    //   ->setDisplayOptions('form', array(
+    //     'type'     => 'entity_reference_autocomplete',
+    //     'weight'   => 6,
+    //     'settings' => array(
+    //       'match_operator'    => 'CONTAINS',
+    //       'size'              => '60',
+    //       'autocomplete_type' => 'tags',
+    //       'placeholder'       => '',
+    //     ),
+    //   ))
+    //   ->setDisplayConfigurable('form', TRUE)
+    //   ->setDisplayConfigurable('view', TRUE);
+
 
     return $fields;
   }

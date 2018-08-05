@@ -33,7 +33,7 @@ function role_watchdog_user_update($user) {
 $uid = \Drupal::currentUser()->id();
 $entity = RoleWatchdog::create([
       'type' => 'role_grants',
-      'name' => 'Role Updated',
+      'name' => 'Role Changed',
       'field_user_performed_by_' => $uid,
       'field_user_performed_on_' => $user->get('uid')->getValue()[0]['value'],
       'field_role_id_changed_to' => $user->getRoles(), 
@@ -50,7 +50,7 @@ function role_watchdog_user_insert($user) {
 $uid = \Drupal::currentUser()->id();
 $entity = RoleWatchdog::create([
       'type' => 'role_grants',
-      'name' => 'Role Added',
+      'name' => 'Added as new user',
       'field_user_performed_by_' => $uid,
       'field_user_performed_on_' => $user->get('uid')->getValue()[0]['value'],
       'field_role_id_changed_to' => $user->getRoles(), 
