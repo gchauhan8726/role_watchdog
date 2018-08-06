@@ -20,3 +20,14 @@ entity.role_watchdog.delete_form:
   title: Delete
   weight: 10
 
+role_watchdog.role_grants:
+  route_name: role_watchdog.role_grants
+  base_route: entity.user.canonical
+  title: Track Role Grants
+  weight: 20
+
+role_watchdog.role_history:
+  route_name: role_watchdog.role_history
+  base_route: entity.user.canonical
+  title: Track Role History
+  weight: 25

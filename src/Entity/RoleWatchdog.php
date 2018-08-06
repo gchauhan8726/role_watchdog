@@ -177,7 +177,7 @@ class RoleWatchdog extends ContentEntityBase implements RoleWatchdogInterface {
       ->setDisplayConfigurable('view', TRUE);
 
     $fields['name'] = BaseFieldDefinition::create('string')
-      ->setLabel(t('Action Performed'))
+      ->setLabel(t('Name'))
       ->setDescription(t('The name of the Role Watchdog entity.'))
       ->setSettings([
         'max_length' => 50,
@@ -306,7 +306,7 @@ class RoleWatchdog extends ContentEntityBase implements RoleWatchdogInterface {
     // $fields['field_action_performed'] = BaseFieldDefinition::create('entity_reference')
     //   ->setLabel(t('Action Performed'))
     //   ->setDescription(t('This is the action performed on the user role.'))
-    //  // ->setSetting('target_type', 'name')
+    //   ->setSetting('target_type', 'user')
     //   ->setSetting('handler', 'default')
     //   ->setDisplayOptions('form', array(
     //     'type'     => 'entity_reference_autocomplete',
